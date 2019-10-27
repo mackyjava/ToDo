@@ -8,7 +8,7 @@ Cuando no hay aplicaciones corriendo, salvo las que son del sistema operativo, n
 
 Es importante indicar que el manager del sistema operativo se encarga de manejar los cambios de estados de la app, sin embargo la app por si misma debe de indicar que cambios se realizaran en estas transiciones.
 
-![Estados de un App en iOS](.\IMG\ios-app-life-cycle-state-relationship.png)
+![Estados de un App en iOS](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/ios-app-life-cycle-state-relationship.png)
 
 #### iOS App Life Cycle State
 
@@ -62,7 +62,7 @@ func applicationWillTerminate(_ application: UIApplication)
 
 Dadas las funciones antes vistas, podemos visualizar en la Imagen 2 una tabla de funciones que ejecuta el AppDelegate cuando tanto el dispositivo, como la app tienen condiciones especificas. En la Imagen se abordan casos en los que la app puede ser cerrada y bajo que estados:
 
-![Tabla de funciones por estado y condiciones del dispositivo](.\IMG\1_SC6bLgPzsb52pEXlV-MdrQ.jpeg)
+![Tabla de funciones por estado y condiciones del dispositivo](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/1_SC6bLgPzsb52pEXlV-MdrQ.jpeg)
 
 2. Investiga la arquitectura MVC
 
@@ -89,7 +89,7 @@ Es un patrón de desarrollo de software compuesto de tres objetos principales:
   - Cómo manejar el flujo entre vistas
   - Respuestas ante acciones del usuario 
 
-![Diagrama del modelo MVC](.\IMG\01-MVC-Diagram.png)
+![Diagrama del modelo MVC](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/MVC-Diagram.png)
 
 Todas las capas del modelo están separadas y cumplen un rol especifico.
 
@@ -97,13 +97,13 @@ Todas las capas del modelo están separadas y cumplen un rol especifico.
 
 Cuando la app inicia, la función UIApplicationMain del objeto UIApplication, configura bjetos clave e inicia la ejecución de la app, siendo este objeto aquel que facilite las interacciones entre el sistema y otros objetos de la app.
 
-![Elementos MVC en iOS](.\IMG\MVC-lifeCycle.png)
+![Elementos MVC en iOS](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/MVC-lifeCycle.png)
 
 El objeto _UIApplication_ gestiona los eventos y comportamientos de app de alto nivel, informa de transiciones de aplicaciones clave y eventos como push notifications a el delegate.
 
 - Main Run Loop: procesa los eventos desatados por el usuario siendo el objeto UIApplication quien lo configura al lanzar la app y lo usa para procesar eventos y manejar actualizaciones a interfaces. Como este ciclo se ejecuta en el hilo principal de la app, los eventos se procesan en serie en el orden en que se reciben.
 
-![Main Run App](.\IMG\mainloopapp.png)
+![Main Run App](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/mainloopapp.png)
 
 Los eventos entran en el queue y se envían uno a uno al ciclo principal de ejecución para ser atendidos .
 
@@ -111,15 +111,15 @@ Los eventos entran en el queue y se envían uno a uno al ciclo principal de ejec
 
   - Ciclo de lanzamiento al primer plano
 
-  ![Lanzar una app al primer plano](.\IMG\launchcicle.png)
+  ![Lanzar una app al primer plano](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/launchcicle.png)
 
   - Lanzar una app en segundo plano:
 
-  ![Lanzar una app en segundo plano](C:\Users\garci\Documents\ECC-Laboratoria-Swift-Course\Typora files\IMG\launchcicletosecondplane.png)
+  ![Lanzar una app en segundo plano](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/launchcicletosecondplane.png)
 
   - Lanzar una app del primer plano al fondo:
 
-  ![Pasar del primer plano al fondo](.\IMG\lauchtobackground.png)
+  ![Pasar del primer plano al fondo](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/lauchtobackground.png)
 
 
 
