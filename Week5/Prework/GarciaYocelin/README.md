@@ -218,7 +218,7 @@ Son constructores que nos permiten crear tipos de datos flexibles estableciéndo
   // Prints "hd is still 1920 pixels wide"
   ```
 
-  ![Tipos de dato por valor - Structs](.\IMG\sharedStateStruct_2x.png)
+  ![Tipos de dato por valor - Structs](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/sharedStateStruct_2x%20(1).png)
 
   - Tipos por referencia: Las clases usan este tipo de tipado y a diferencia de los structs, no copian cuando se asignan a una variable o constante, si no que usan la referencia en memoria de la misma instancia existente, con lo que un cambio en una instancia, afectara al original y a otras instancias que tienen referencia a la misma. 
 
@@ -237,7 +237,7 @@ Son constructores que nos permiten crear tipos de datos flexibles estableciéndo
   // Prints "The frameRate property of tenEighty is now 30.0"
   ```
 
-  ![Tipado por referencia - Class](.\IMG\sharedStateClass_2x (1).png)
+  ![Tipado por referencia - Class](https://github.com/YocelinGR/ToDo/blob/master/Week5/Prework/GarciaYocelin/IMG/sharedStateClass_2x.png)
 
   - Operadores de identidad: Se usan para averiguar si dos constantes o variables se refieren a la misma instancia de una clase, estos operadores son: Idéntico a ```===``` y No es idéntico a```!==``` 
 
