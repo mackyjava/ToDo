@@ -194,7 +194,7 @@ Algunos tips:
 
 1. Agrega un método de ```unwind``` para poder regresar al ```UITableView``` principal.
 
-2. Crea una clase que herede del ```UITableViewController``` y asígnala al storyboard del table view estático. 
+2. Crea una clase que herede del ```UITableViewController``` y asígnala al storyboard del table view estático, llama a esta clase ```ToDoViewController```. 
 
 3. Posteriormente, crea outlets para todos los elementos de la interfaz y uno más para el butón **Save**. 
 
@@ -223,7 +223,113 @@ Algunos tips:
       isCompleteButton.isSelected = !isCompleteButton.isSelected
       ```
 
+8. Completa el paso 1 del Modelo. 
+
+9. Agrega una función encargada de recibir un objeto de tipo Date como parámetro y actualiza el label para que muestre la fecha indicada por el usuario en el DatePicker usando el dateformatter que creaste dentro del modelo. Recuerda como llamar propiedades estáticas definidas dentro de una estructura. 
+
+   1. DateFormatter tiene un método llamado ```string(from: Date())``` encargado de regresar un String a partir de un Date. Llama a éste método y asígnalo al label. 
+
+10. Recuerda llamar a la función que acabas de crear, también, desde del ```viewDidLoad()```. 
+
+11. Agrega un @IBAction para el date picker y llama a la función del punto 9. 
+
+
+
+##### Expandir y colapsar la celda del DatePicker 
+
+1. La altura de la celda del DatePicker (Section 1, Row 0) debería depender de si el usuario le da click o no, si le da click, ésta se debe expandir y si le da click de nuevo, ésta debe colapsar. Pero antes, agrega una variable booleana que indique si el DatePicker está escondido. 
+
+2. Dentro de ```ToDoViewController``` sobrecarga el método ```tableView(_ tableView:, heightForRowAt indexPath: )```.  
+
+   1. ```swift
+      override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+              let normalCellHeight = CGFloat(44)
+              let largeCellHeight = CGFloat(200)
+              
+              switch indexPath {
+              case [1,0]:
+                  return isPickerHidden ? normalCellHeight:largeCellHeight
+              case [2,0]:
+                  return largeCellHeight
+              default:
+                  return normalCellHeight
+              }
+          }
+      ```
+
+3. Ahora, sobre carga el método ```didSelectRowAt```:
+
+   1. ```swift
+      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+              switch (indexPath) {
+              case [1,0]:
+                  isPickerHidden = !isPickerHidden
+                  print(isPickerHidden)
       
+                  dueDateLabel.textColor = isPickerHidden ? .black : tableView.tintColor
+      
+                  tableView.beginUpdates()
+                  tableView.endUpdates()
+              default:
+                  break
+              }
+          }
+      ```
+
+#### Modelo:
+
+1. El texto para el label de la fecha debere reflejar el valor escogido por el usuario en el DatePicker. Pero primero necesitas una manera de convertir, a partir de un objeto Date, un String. Agrega una constante estática a ToDo que sea de tipo DateFormatter.
+
+   ```swift
+   static let dueDateFormatter: DateFormatter = {
+           let formatter = DateFormatter()
+           formatter.dateStyle = .short
+           formatter.timeStyle = .short
+           return formatter
+       }()
+   ```
+
+#### Punto de control:
+
+<img src="images/im26.png" alt="icon" style="zoom:33%;" />
+
+![icon](images/im27.png)
+
+---
+
+### Cuarta sección: Crear y guardar el modelo de datos
+
+Ahora que tienes ya casi toda la interfaz lista, es hora de guardar un ToDo. Hay que hacer básicamente dos cosas:
+
+1. Obtener los datos de la interfaz para mandarlo al ```ToDoTableViewController``` mediante un segue.
+
+   1. Dentro de ```ToDoViewController``` sobre carga el método ```prepare(for segue: )``` y asegúrate que el identificador del segue sea el correcto: 
+
+      ```swift
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+              super.prepare(for: segue, sender: sender)
+              
+              guard segue.identifier == "SaveUnwind" else {return}
+              
+              let title = titleTextField.text!
+              let isComplete = isCompleteButton.isSelected
+              let dueDate = datePicker.date
+              let notes = notesTextView.text
+              
+          }
+      ```
+
+   2. Crea una propiedad llamada ```todo``` de tipo ```ToDo?```  (esta variable debe ser opcional). 
+
+2. Insertar el ToDo al tableview del ```ToDoTableViewController```. 
+
+   1. Dentro de la función ```unwind``` agrega el código necesario para aceptar el ```todo``` de ```ToDoViewController```. 
+
+#### Punto de control:
+
+![icon](images/im28.png)
+
+![icon](images/im27.png)
 
 ---
 
