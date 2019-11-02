@@ -10,8 +10,8 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
-    var ToDoArr = [ toDo ]()
-
+    var ToDoArr = toDo.generateTodos()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,7 +20,12 @@ class ToDoTableViewController: UITableViewController {
         return ToDoArr.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        //1. crear celda
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UiTableViewCell", for: indexPath)
+        
+        cell.textLabel?.text = "\(ToDoArr[indexPath.row].title)"
+        
+        return cell
     }
 }
 

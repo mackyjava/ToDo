@@ -9,13 +9,13 @@
 import Foundation
 
 struct toDo {
-    var tittle: String
+    var title: String
     var date: Date
     var isCompleted: Bool
     var notes: String?
     
     init(title: String, date: Date, isCompleted: Bool, notes: String?){
-        self.tittle = title
+        self.title = title
         self.date = date
         self.isCompleted = isCompleted
         self.notes = notes
