@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k4l-cU-WGE">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k4l-cU-WGE">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xWi-Yd-CtA" id="a0g-dd-str">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -49,7 +47,7 @@
             <objects>
                 <tableViewController id="lW5-27-qLu" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="40Y-z0-mY5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -59,16 +57,15 @@
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wBQ-2n-H9M" id="gGb-6A-jtE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recuerdame ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-c5-6oJ">
-                                                    <rect key="frame" x="16" y="20" width="299" height="30"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="16" y="18" width="299" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrf-77-Odj">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrf-77-Odj">
                                                     <rect key="frame" x="323" y="17" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="S37-fu-BPH"/>
@@ -76,6 +73,8 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="ok0-zN-079"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="zKI-jU-ZQg"/>
                                                     </constraints>
+                                                    <state key="normal" image="checkmark" catalog="system"/>
+                                                    <state key="selected" image="checkmark.rectangle.fill" catalog="system"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -90,27 +89,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Due Date" id="7L2-mI-vha">
+                            <tableViewSection id="7L2-mI-vha">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="214" id="Keq-xo-e97">
-                                        <rect key="frame" x="0.0" y="181.5" width="375" height="214"/>
+                                        <rect key="frame" x="0.0" y="161.5" width="375" height="214"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Keq-xo-e97" id="lXh-lV-ruW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rlV-N3-GxO">
-                                                    <rect key="frame" x="16" y="10" width="343" height="193"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="594419395.46716297">
-                                                        <!--2019-11-02 20:29:55 +0000-->
-                                                    </date>
+                                                    <rect key="frame" x="27.5" y="40" width="320" height="164"/>
                                                 </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-35-L6K">
+                                                    <rect key="frame" x="290" y="11" width="48" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G75-Aj-gWK">
+                                                    <rect key="frame" x="33" y="8" width="81" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rlV-N3-GxO" firstAttribute="top" secondItem="lXh-lV-ruW" secondAttribute="top" constant="10" id="57I-HN-7kH"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rlV-N3-GxO" secondAttribute="trailing" id="8uR-aQ-gO2"/>
-                                                <constraint firstItem="rlV-N3-GxO" firstAttribute="leading" secondItem="lXh-lV-ruW" secondAttribute="leadingMargin" id="O5M-lU-o0f"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rlV-N3-GxO" secondAttribute="bottom" id="iNy-ZV-1jD"/>
+                                                <constraint firstAttribute="bottom" secondItem="rlV-N3-GxO" secondAttribute="bottom" constant="10" id="8TJ-Qe-tIB"/>
+                                                <constraint firstItem="rlV-N3-GxO" firstAttribute="centerX" secondItem="lXh-lV-ruW" secondAttribute="centerX" id="EZu-Vb-aGe"/>
+                                                <constraint firstItem="rlV-N3-GxO" firstAttribute="top" secondItem="lXh-lV-ruW" secondAttribute="top" constant="40" id="y16-wx-dw0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -118,11 +127,11 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notas" id="ilF-kn-BRH">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="UjT-wW-8UA">
-                                        <rect key="frame" x="0.0" y="451.5" width="375" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="UjT-wW-8UA">
+                                        <rect key="frame" x="0.0" y="431.5" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UjT-wW-8UA" id="f6e-OJ-jPN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -157,7 +166,7 @@
             <objects>
                 <navigationController id="0Cd-ra-cGP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cPu-AN-iiv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -174,7 +183,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k4l-cU-WGE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UXX-AO-eeC">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -187,4 +196,8 @@
             <point key="canvasLocation" x="-2.3999999999999999" y="-5.8470764617691158"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" catalog="system" width="64" height="56"/>
+        <image name="checkmark.rectangle.fill" catalog="system" width="64" height="46"/>
+    </resources>
 </document>
