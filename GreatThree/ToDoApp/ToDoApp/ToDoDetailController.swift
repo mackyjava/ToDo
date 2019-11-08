@@ -9,25 +9,40 @@
 import UIKit
 
 class ToDoDetailController: UITableViewController {
-    //@IBOutlet weak var nflLabel: UILabel!
-    @IBOutlet weak var textEditChanged: UILabel!
-    @IBOutlet weak var checkbox: UIButton!
-    @IBOutlet weak var dueDateLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var noteTextField: UITextField!
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    @IBOutlet weak var textInfo: UITextField!
+    @IBOutlet weak var checkBoxButton: UIButton!
+    
+    
+    @IBOutlet weak var notesTextView: UITextView!
+    
+    @IBOutlet weak var datePickerValue: UIDatePicker!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var datePickerLabel: UILabel!
+    
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           existTextInField()
+           // Do any additional setup after loading the view, typically from a nib.
+       }
     
     func existTextInField(){
-        if(((textEditChanged?.text) != nil)){
+        if(((textInfo?.text) != nil)){
             saveButton.isEnabled = false
         } else {
             saveButton.isEnabled = true
         }
     }
+    
+    
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        existTextInField()
+    }
+    
+    @IBAction func returnPressed(_ sender: UITextField) {
+        textInfo.resignFirstResponder()
+    }
+    
 }
 
