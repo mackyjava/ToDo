@@ -66,7 +66,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="returnPressed:" destination="lW5-27-qLu" eventType="primaryActionTriggered" id="Hs3-Od-g6P"/>
-                                                        <action selector="textEditingChanged:" destination="lW5-27-qLu" eventType="editingDidEnd" id="cm9-Ku-yOk"/>
+                                                        <action selector="textEditingChanged:" destination="lW5-27-qLu" eventType="editingChanged" id="mi5-W2-H2m"/>
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrf-77-Odj">
@@ -79,6 +79,9 @@
                                                     </constraints>
                                                     <state key="normal" image="checkmark" catalog="system"/>
                                                     <state key="selected" image="checkmark.rectangle.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="isComplete:" destination="lW5-27-qLu" eventType="touchUpInside" id="1Jw-WU-wfS"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -104,11 +107,14 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rlV-N3-GxO">
                                                     <rect key="frame" x="27.5" y="40" width="320" height="150"/>
+                                                    <connections>
+                                                        <action selector="datePickerSelected:" destination="lW5-27-qLu" eventType="valueChanged" id="rE0-1w-nnc"/>
+                                                    </connections>
                                                 </datePicker>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-35-L6K">
-                                                    <rect key="frame" x="290" y="11" width="48" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-35-L6K">
+                                                    <rect key="frame" x="201" y="11" width="131" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

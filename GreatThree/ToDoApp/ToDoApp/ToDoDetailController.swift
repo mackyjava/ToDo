@@ -24,6 +24,7 @@ class ToDoDetailController: UITableViewController {
        override func viewDidLoad() {
            super.viewDidLoad()
            existTextInField()
+        selectDatePicker(dateSelected: Date())
            // Do any additional setup after loading the view, typically from a nib.
        }
     
@@ -36,6 +37,10 @@ class ToDoDetailController: UITableViewController {
     }
     
     
+    
+    @IBAction func isComplete(_ sender: UIButton) {
+        checkBoxButton.isSelected = !checkBoxButton.isSelected
+    }
     @IBAction func textEditingChanged(_ sender: UITextField) {
         existTextInField()
     }
@@ -43,6 +48,13 @@ class ToDoDetailController: UITableViewController {
     @IBAction func returnPressed(_ sender: UITextField) {
         textInfo.resignFirstResponder()
     }
+    func selectDatePicker(dateSelected: Date){
+        //toDo.dueDateFormatter
+        datePickerLabel.text = toDo.dueDateFormatter.string(from: dateSelected)
+    }
     
+    @IBAction func datePickerSelected(_ sender: UIDatePicker) {
+        selectDatePicker(dateSelected: sender.date)
+    }
 }
 

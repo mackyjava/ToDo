@@ -31,6 +31,12 @@ struct toDo {
             toDo(title: "Subir Repo", date: Date(), isCompleted: false, notes: nil)
         ]
     }
+    static var dueDateFormatter: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .short
+    return formatter
+    }
 }
 
 //toDo.generateTodos()
