@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct toDo {
+struct ToDo {
     var title: String
     var date: Date
     var isCompleted: Bool
@@ -21,14 +21,14 @@ struct toDo {
         self.notes = notes
     }
     
-    static func getToDos() -> [ toDo ]? {
+    static func getToDos() -> [ ToDo ]? {
         return nil
     }
-    static func generateTodos () -> [ toDo ] {
+    static func generateTodos () -> [ ToDo ] {
         return [
-            toDo(title: "Crear App", date: Date(), isCompleted: false, notes: "luego"),
-            toDo(title: "Estudiar", date: Date(), isCompleted: true, notes: ""),
-            toDo(title: "Subir Repo", date: Date(), isCompleted: false, notes: nil)
+            ToDo(title: "Crear App", date: Date(), isCompleted: false, notes: "luego"),
+            ToDo(title: "Estudiar", date: Date(), isCompleted: true, notes: ""),
+            ToDo(title: "Subir Repo", date: Date(), isCompleted: false, notes: nil)
         ]
     }
     static var dueDateFormatter: DateFormatter {

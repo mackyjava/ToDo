@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
     
-    var ToDoArr = toDo.generateTodos()
+    var ToDoArr = ToDo.generateTodos()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,24 @@ class ToDoTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToToDoTableViewController(_ segue: UIStoryboardSegue) {
+    @IBAction func unwindToToDoTableViewControllerCancel(_ segue: UIStoryboardSegue) {
     }
+    @IBAction func unwindToTodoTableViewControllerSave(_ unwindSegue: UIStoryboardSegue) {
+        if unwindSegue.identifier == "Save" {
+            let sourceVC = unwindSegue.source as! ToDoDetailController
+            
+            guard let toDo = sourceVC.toDo else {return}
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                ToDoArr[selectedIndexPath.row] = toDo
+                tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+            } else {
+                let newIndexPath = IndexPath(row: ToDoArr.count, section: 0)
+                ToDoArr.append(toDo)
+                print(toDo.title)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+    
 }
 

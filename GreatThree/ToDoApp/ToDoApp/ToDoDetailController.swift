@@ -13,6 +13,7 @@ class ToDoDetailController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var textInfo: UITextField!
     @IBOutlet weak var checkBoxButton: UIButton!
+    var toDo: ToDo?
     
     
     @IBOutlet weak var notesTextView: UITextView!
@@ -29,10 +30,10 @@ class ToDoDetailController: UITableViewController {
        }
     
     func existTextInField(){
-        if(((textInfo?.text) != nil)){
-            saveButton.isEnabled = false
-        } else {
+        if(((textInfo?.text) != "")){
             saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
         }
     }
     
@@ -50,16 +51,13 @@ class ToDoDetailController: UITableViewController {
     }
     func selectDatePicker(dateSelected: Date){
         //toDo.dueDateFormatter
-        datePickerLabel.text = toDo.dueDateFormatter.string(from: dateSelected)
+        datePickerLabel.text = ToDo.dueDateFormatter.string(from: dateSelected)
     }
      
     @IBAction func datePickerSelected(_ sender: UIDatePicker) {
         selectDatePicker(dateSelected: sender.date)
     }
     var isPickerHidden = false
-    @IBAction func datePickerTouch(_ sender: Any) {
-        isPickerHidden = !isPickerHidden
-    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let normalCellHeight = CGFloat(44)
@@ -73,6 +71,34 @@ class ToDoDetailController: UITableViewController {
         default:
             return normalCellHeight
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath) {
+        case [1,0]:
+            isPickerHidden = !isPickerHidden
+            print(isPickerHidden)
+            
+            dueDateLabel.textColor = isPickerHidden ? .black : tableView.tintColor
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        default:
+            break
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "Save" else {return}
+        
+        
+        let title = textInfo.text!
+        let isComplete = checkBoxButton.isSelected
+        let dueDate = datePickerValue.date
+        let notes = notesTextView.text
+        
+        toDo = ToDo(title: title, date: dueDate, isCompleted: isComplete, notes: notes ?? "")
     }
 }
 
