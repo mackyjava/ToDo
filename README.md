@@ -1,3 +1,9 @@
+## FREEDOM SQUADRON
+
+Nelly Flores Rojas
+Analhi Guadarrama Medina
+Karen Martinez Marce
+
 # To Do App 
 
 1. [Week 5](https://github.com/ECC-Laboratoria/ToDo/tree/master/Week5)
