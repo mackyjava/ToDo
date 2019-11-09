@@ -26,7 +26,18 @@ class ToDoDetailController: UITableViewController {
            super.viewDidLoad()
            existTextInField()
         selectDatePicker(dateSelected: Date())
-           // Do any additional setup after loading the view, typically from a nib.
+        if let todo = toDo {
+            print("goes here");
+            navigationItem.title = "To-Do"
+            textInfo.text = todo.title
+            checkBoxButton.isSelected = todo.isCompleted
+            datePickerValue.date = todo.date
+            notesTextView.text = todo.notes
+        } else {
+            print(" h")
+            datePickerValue.date = Date().addingTimeInterval(24*60*60)
+        }
+
        }
     
     func existTextInField(){
@@ -41,6 +52,13 @@ class ToDoDetailController: UITableViewController {
     
     @IBAction func isComplete(_ sender: UIButton) {
         checkBoxButton.isSelected = !checkBoxButton.isSelected
+        if(checkBoxButton.isSelected == true){
+            print("true");
+            checkBoxButton.backgroundColor = .red
+        } else {
+            print("false"); checkBoxButton.backgroundColor = .blue
+        }
+        
     }
     @IBAction func textEditingChanged(_ sender: UITextField) {
         existTextInField()

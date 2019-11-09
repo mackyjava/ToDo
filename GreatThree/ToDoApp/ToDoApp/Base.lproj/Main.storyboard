@@ -25,6 +25,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0Cd-ra-cGP" kind="presentation" identifier="ShowDetails" id="FCN-vp-ZhO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -73,13 +76,13 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrf-77-Odj">
                                                     <rect key="frame" x="323" y="17" width="36" height="36"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="S37-fu-BPH"/>
                                                         <constraint firstAttribute="height" constant="36" id="UZy-7V-KpU"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="ok0-zN-079"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="zKI-jU-ZQg"/>
                                                     </constraints>
-                                                    <state key="normal" image="checkmark"/>
                                                     <state key="selected" image="checkmark.rectangle.fill"/>
                                                     <connections>
                                                         <action selector="isComplete:" destination="lW5-27-qLu" eventType="touchUpInside" id="1Jw-WU-wfS"/>
@@ -175,7 +178,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="J7u-qB-tih">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Aoa-IQ-3EI">
                             <connections>
-                                <segue destination="flL-g3-fiB" kind="unwind" identifier="" unwindAction="unwindToToDoTableViewControllerCancel:" id="Jn9-FH-heQ"/>
+                                <segue destination="flL-g3-fiB" kind="unwind" identifier="ShowDetails" unwindAction="unwindToToDoTableViewControllerCancel:" id="Jn9-FH-heQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5Lj-Aw-aUc">
@@ -213,7 +216,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iun-O1-4cr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750" y="-6"/>
+            <point key="canvasLocation" x="1822" y="412"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JVW-bw-VI2">
@@ -235,7 +238,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark" width="64" height="56"/>
         <image name="checkmark.rectangle.fill" width="64" height="46"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FCN-vp-ZhO"/>
+    </inferredMetricsTieBreakers>
 </document>
