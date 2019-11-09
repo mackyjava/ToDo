@@ -109,6 +109,7 @@
                                                     <rect key="frame" x="27.5" y="40" width="320" height="150"/>
                                                     <connections>
                                                         <action selector="datePickerSelected:" destination="lW5-27-qLu" eventType="valueChanged" id="rE0-1w-nnc"/>
+                                                        <action selector="datePickerTouch:" destination="lW5-27-qLu" eventType="touchUpInside" id="Vsd-r4-xXp"/>
                                                     </connections>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-35-L6K">

@@ -52,9 +52,27 @@ class ToDoDetailController: UITableViewController {
         //toDo.dueDateFormatter
         datePickerLabel.text = toDo.dueDateFormatter.string(from: dateSelected)
     }
-    
+     
     @IBAction func datePickerSelected(_ sender: UIDatePicker) {
         selectDatePicker(dateSelected: sender.date)
+    }
+    var isPickerHidden = false
+    @IBAction func datePickerTouch(_ sender: Any) {
+        isPickerHidden = !isPickerHidden
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let normalCellHeight = CGFloat(44)
+        let largeCellHeight = CGFloat(200)
+        
+        switch indexPath {
+        case [1,0]:
+            return isPickerHidden ? normalCellHeight:largeCellHeight
+        case [2,0]:
+            return largeCellHeight
+        default:
+            return normalCellHeight
+        }
     }
 }
 
