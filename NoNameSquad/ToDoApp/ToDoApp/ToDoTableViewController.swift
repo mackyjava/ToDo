@@ -124,5 +124,23 @@ class ToDoTableViewController: UITableViewController {
     */
     
     @IBAction func unwindToEmojiTableViewController(_ unwindSegue: UIStoryboardSegue) {
+       
+               if unwindSegue.identifier == "Save" {
+                print("unwind")
+                  let sourceVC = unwindSegue.source as! ToDoViewController
+                  guard let todo = sourceVC.todo else {return}
+                  if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                      data[selectedIndexPath.row] = todo
+                      tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+                  }
+                  else {
+                      let newIndexPath = IndexPath(row: data.count, section: 0)
+                      print(todo)
+                      data.append(todo)
+                      tableView.insertRows(at: [newIndexPath], with: .automatic)
+                  }
+              }
+        
     }
+   
 }

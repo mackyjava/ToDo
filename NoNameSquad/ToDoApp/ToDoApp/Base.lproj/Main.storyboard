@@ -33,7 +33,7 @@
                     <navigationItem key="navigationItem" title="My To Do 's" id="Lg1-DC-HfH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pHT-lW-oRw">
                             <connections>
-                                <segue destination="Rxc-18-Jks" kind="presentation" id="W5D-6Y-Jo3"/>
+                                <segue destination="Rxc-18-Jks" kind="presentation" identifier="SaveUnwind" id="W5D-6Y-Jo3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -132,6 +132,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="162" id="nDy-jU-RrN"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="changeDate:" destination="JGb-T5-wfC" eventType="valueChanged" id="oFO-Rg-ri6"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

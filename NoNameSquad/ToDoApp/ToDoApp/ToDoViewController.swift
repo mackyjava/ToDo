@@ -23,6 +23,7 @@ class ToDoViewController: UITableViewController {
     @IBOutlet weak var notesText: UITextView!
     
     @IBOutlet weak var save: UIBarButtonItem!
+    
     @IBAction func changeComplete(_ sender: Any) {
         complete.isSelected = !complete.isSelected
     }
@@ -34,12 +35,15 @@ class ToDoViewController: UITableViewController {
         dateLabel(date: dateControl.date)
     }
     
+    var todo: ToDo?
+    
     override func viewDidLoad() {
-         toggleActivate()
-         dateLabel(date: dateControl.date)
         super.viewDidLoad()
+        toggleActivate()
+        dateLabel(date: dateControl.date)
     }
     
+   
    func toggleActivate() -> Void {
     if todoText.text?.isEmpty ?? false {
                save.isEnabled = false
@@ -50,6 +54,7 @@ class ToDoViewController: UITableViewController {
         
     }
    var isPickerHidden:Bool = true
+    
    func dateLabel(date:Date){
         dateLabel.text = ToDo.dueDateFormatter.string(from: date)
     }; override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,10 +91,12 @@ class ToDoViewController: UITableViewController {
      
      guard segue.identifier == "SaveUnwind" else {return}
      
-    _ = todoText.text!
-    _ = complete.isSelected
-    _ = dateControl.date
-    _ = notesText.text
+    let title = todoText.text!
+    let isComplete = complete.isSelected
+    let dueDate = dateControl.date
+    let notes = notesText.text
+    
+    todo = ToDo(title: title , isCompleted: isComplete, dueDate: dueDate, notes: notes)
      
  }
 
