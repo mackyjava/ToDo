@@ -1,3 +1,9 @@
+## FREEDOM SQUADRON
+
+Nelly Flores Rojas
+Analhi Guadarrama Medina
+Karen Martinez Marce
+
 # To Do App 
 
 1. [Week 5](https://github.com/ECC-Laboratoria/ToDo/tree/master/Week5)
@@ -152,7 +158,7 @@ Al terminar la sesión, deberán hacer otro **pull request** donde reflejarán e
 1. Para el ```UITableView``` de hasta la derecha, cambia el contenido de ```Dynamic Prototypes``` a ```Static Content```  y cambia el estilo a ```Grouped```. 
 2. Agrega dos bar button items, uno llamado ```Cancel``` y otro llamado ```Save```. 
 3. Realiza el punto 1 del Controlador.
-4. Vincula estos dos items a la función ```unwind``` del ```ToDoTableViewController```. 
+4. Vincula estos dos items a la función ```unwind``` del ```ToDoTableViewController```.
 5. Agrega un identificador al segue del botón ```Save```. 
 6. Asegúrate que el table view tenga tres secciones, cada sección con solo una celda. 
 
@@ -293,7 +299,7 @@ Algunos tips:
 
 <img src="images/im26.png" alt="icon" style="zoom:33%;" />
 
-![icon](images/im27.png)
+<img src="images/im27.png" alt="icon" style="zoom:33%;" />
 
 ---
 
@@ -327,9 +333,117 @@ Ahora que tienes ya casi toda la interfaz lista, es hora de guardar un ToDo. Hay
 
 #### Punto de control:
 
-![icon](images/im28.png)
+<img src="images/im28.png" alt="icon" style="zoom:33%;" />
 
-![icon](images/im27.png)
+<img src="images/im27.png" alt="icon" style="zoom:33%;" />
+
+---
+
+### Quinta sección: Editar detalles
+
+#### UI
+
+1. Arrastra la celda del ```ToDoTableViewController``` hacía el NavigationController y selecciona PresentModally. 
+
+   ![icon](images/im29.png)
+
+2. Agrega un identificador al segue anterior -> ```ShowDetails```. 
+
+#### Controlador
+
+1. Al hacer lo anterior, necesitarán pasar la información del modelo de datos de la celda que seleccionaron al ```ToDoViewController```. Para hacer lo anterior, recuerden implementar la función ```prepare(for segue: )``` desde ```ToDoTableViewController``` y crear una propiedad ```todo``` dentro de ```ToDoViewController```.
+
+   ```swift
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           guard segue.identifier == "ShowDetails" else {return}
+           
+           let navController = segue.destination as! UINavigationController
+           let todoViewController = navController.topViewController as! ToDoViewController
+           guard let newIndexPath = tableView.indexPathForSelectedRow else {return}
+           let selectedTodo = todos[newIndexPath.row]
+           todoViewController.todo = selectedTodo
+       }
+   ```
+
+2. El table view que creamos puede fungir para editar el ToDo que seleccionemos o para agregar un nuevo ToDo. Cuando demos click en el botón ```+```  la variable ```todo``` estará vacía, pero si damos click en la celda, la variable ```todo``` no será vacía. Agrega las siguientes líneas dentro del ```viewDidLoad``` 
+
+   ```swift
+   if let todo = todo {
+               navigationItem.title = "To-Do"
+               titleTextField.text = todo.title
+               isCompleteButton.isSelected = todo.isComplete
+               datePicker.date = todo.dueDate
+               notesTextView.text = todo.notes
+           } else {
+               datePicker.date = Date().addingTimeInterval(24*60*60)
+           }
+   ```
+
+3. Finalmente, ¿qué pasa si quiero actualizar un ToDo? Tenemos que reemplazar el modelo de datos antiguo del table view y sustituirlo por el nuevo modelo de datos con la información actualizada. Dentro del método ```unwind``` del ```ToDoTableViewController``` agrega lo siguiente: 
+
+   ```swift
+   @IBAction func unwindToTodoTableVC(_ segue: UIStoryboardSegue) {
+           guard segue.identifier == "SaveUnwind" else {return}
+           let sourceViewController = segue.source as! ToDoViewController
+           
+           if let todo = sourceViewController.todo {
+               
+               if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                   todos[selectedIndexPath.row] = todo
+                   tableView.reloadRows(at: [selectedIndexPath], with: .none)
+               } else {
+                   let newIndexPath = IndexPath(row: todos.count, section: 0)
+                   todos.append(todo)
+                   tableView.insertRows(at: [newIndexPath], with: .automatic)
+               }
+           }
+       }
+   ```
+
+---
+
+### Sexta sección: Codable 
+
+Por último, necesitamos que nuestra app guarde la información que el usuario ingresó al disco del dispositivo. Para esto, usaremos un protocolo llamado ```Codable```.  Este protocolo nos ayudará a que las instancias de nuestra estructura ```ToDo``` pueda ser codificada y descodificada. 
+
+Para esta app, vamos a guardar la información dentro del dispositivo en un directorio llamado **Document's directory**. A este directorio solo puede entrar tu app, por lo que es un lugar seguro para guardar la información. 
+
+#### Modelo
+
+1. Haz que tu estructura ```ToDo``` conforme al protocolo ```Codable```. 
+
+2. Agrega las siguientes constantes a la definición de ```ToDo```.
+
+   ```swift
+   static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+       static let ArchiveUrl = DocumentsDirectory.appendingPathComponent("todos").appendingPathExtension("plist")
+   ```
+
+3. Ahora que agregamos las propiedades anteriores, es posible agregar lógica al método ```loadToDos()```. 
+
+   ```swift
+   static func loadToDos() -> [ToDo]? {
+           guard let codedTodos = try? Data(contentsOf: ArchiveUrl) else {return nil}
+           let propertyListDecoder = PropertyListDecoder()
+           return try? propertyListDecoder.decode(Array<ToDo>.self, from: codedTodos)
+       }
+   ```
+
+4. Ahora, y antes de comenzar a leer información, hay que tener un método para guardar la información. Creen la siguiente función. 
+
+```swift
+static func saveToDos(_ todos: [ToDo]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let codedTodos = try? propertyListEncoder.encode(todos)
+        try? codedTodos?.write(to: ArchiveUrl, options: .noFileProtection)
+    }
+```
+
+
+
+#### Controlador
+
+1. ¿Ahora, cuando sería el momento apropiado para guardar la información al disco? Primero, cuando el usuario quite un elemento del arreglo, es decir, cuando borre un todo del table view. O, cuando el usuario cree o actualice un todo. Manda a llamar a la función ```saveToDos``` donde sea necesario. 
 
 ---
 
