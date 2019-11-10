@@ -24,11 +24,11 @@ struct ToDo {
            ]
        }
     static let dueDateFormatter: DateFormatter = {
-               let formatter = DateFormatter()
-               formatter.dateStyle = .short
-               formatter.timeStyle = .short
-               return formatter
-           }()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
 class ToDoTableViewController: UITableViewController {
@@ -75,11 +75,8 @@ class ToDoTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         }
-        
-        
-        
     }
-   
+    
 
     /*
     // Override to support conditional editing of the table view.

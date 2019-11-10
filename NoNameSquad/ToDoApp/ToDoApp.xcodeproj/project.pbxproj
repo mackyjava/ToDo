@@ -13,7 +13,7 @@
 		FC2DC0C7236E04B1002E1429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC2DC0C6236E04B1002E1429 /* Assets.xcassets */; };
 		FC2DC0CA236E04B1002E1429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2DC0C8236E04B1002E1429 /* LaunchScreen.storyboard */; };
 		FC2DC0D2236E0584002E1429 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DC0D1236E0584002E1429 /* ToDoTableViewController.swift */; };
-		FC67561E2377417C00F9F396 /* StaticToDoViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC67561D2377417C00F9F396 /* StaticToDoViewerController.swift */; };
+		FC3C4B682377A1DA00F0E1AE /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3C4B672377A1DA00F0E1AE /* ToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		FC2DC0C9236E04B1002E1429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC2DC0CB236E04B1002E1429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2DC0D1236E0584002E1429 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
-		FC67561D2377417C00F9F396 /* StaticToDoViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticToDoViewerController.swift; sourceTree = "<group>"; };
+		FC3C4B672377A1DA00F0E1AE /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				FC2DC0BD236E04B0002E1429 /* AppDelegate.swift */,
 				FC2DC0BF236E04B0002E1429 /* SceneDelegate.swift */,
 				FC2DC0C3236E04B0002E1429 /* Main.storyboard */,
-				FC67561D2377417C00F9F396 /* StaticToDoViewerController.swift */,
+				FC3C4B672377A1DA00F0E1AE /* ToDoViewController.swift */,
 				FC2DC0D1236E0584002E1429 /* ToDoTableViewController.swift */,
 				FC2DC0C6236E04B1002E1429 /* Assets.xcassets */,
 				FC2DC0C8236E04B1002E1429 /* LaunchScreen.storyboard */,
@@ -141,9 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3C4B682377A1DA00F0E1AE /* ToDoViewController.swift in Sources */,
 				FC2DC0BE236E04B0002E1429 /* AppDelegate.swift in Sources */,
 				FC2DC0D2236E0584002E1429 /* ToDoTableViewController.swift in Sources */,
-				FC67561E2377417C00F9F396 /* StaticToDoViewerController.swift in Sources */,
 				FC2DC0C0236E04B0002E1429 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
